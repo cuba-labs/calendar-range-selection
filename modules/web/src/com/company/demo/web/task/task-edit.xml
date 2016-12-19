@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editCaption"
+        class="com.company.demo.web.task.TaskEdit"
+        datasource="taskDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.demo.web.task">
+    <dsContext>
+        <datasource id="taskDs"
+                    class="com.company.demo.entity.Task"
+                    view="task-with-employee"/>
+    </dsContext>
+    <dialogMode width="AUTO"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="taskDs">
+            <column width="250px">
+                <field id="employee"/>
+                <field id="caption"/>
+                <field id="description"
+                       rows="5"/>
+                <field id="startDate"/>
+                <field id="endDate"/>
+                <field id="styleName"/>
+                <field id="allDay"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

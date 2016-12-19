@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.demo.web.task.TaskBrowse"
+        focusComponent="tasksTable"
+        lookupComponent="tasksTable"
+        messagesPack="com.company.demo.web.task">
+    <dsContext>
+        <collectionDatasource id="tasksDs"
+                              class="com.company.demo.entity.Task"
+                              view="task-with-employee">
+            <query>
+                <![CDATA[select e from demo$Task e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tasksTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="tasksTable"
+                datasource="tasksDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="tasksTable"
+               width="100%">
+            <actions>
+                <action id="create"
+                        openType="DIALOG"/>
+                <action id="edit"
+                        openType="DIALOG"/>
+                <action id="remove"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="employee"/>
+                <column id="caption"/>
+                <column id="description"/>
+                <column id="startDate"/>
+                <column id="endDate"/>
+                <column id="styleName"/>
+                <column id="allDay"/>
+            </columns>
+            <rows datasource="tasksDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="tasksTable.create"/>
+                <button id="editBtn"
+                        action="tasksTable.edit"/>
+                <button id="removeBtn"
+                        action="tasksTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

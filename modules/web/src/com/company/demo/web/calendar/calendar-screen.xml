@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.company.demo.web.calendar.CalendarScreen"
+        messagesPack="com.company.demo.web.calendar">
+    <dsContext>
+        <collectionDatasource id="tasksDs"
+                              class="com.company.demo.entity.Task"
+                              view="task-with-employee">
+            <query>
+                <![CDATA[select e from demo$Task e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout>
+        <calendar id="calendar"
+                  captionProperty="caption"
+                  datasource="tasksDs"
+                  descriptionProperty="description"
+                  endDate="2016-12-31"
+                  endDateProperty="endDate"
+                  height="100%"
+                  startDate="2016-12-01"
+                  startDateProperty="startDate"
+                  stylenameProperty="styleName"
+                  width="100%"/>
+    </layout>
+</window>
