@@ -22,6 +22,7 @@
                   endDate="2016-12-31"
                   endDateProperty="endDate"
                   height="100%"
+                  isAllDayProperty="allDay"
                   startDate="2016-12-01"
                   startDateProperty="startDate"
                   stylenameProperty="styleName"
